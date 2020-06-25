@@ -1,12 +1,21 @@
 
 <%- include('partials/header'); -%>
 
+<% const truncatedStartingContent = startingContent.substring(0, 100) + " ..." %>
 <h1>Home</h1>
-<p><%= startingContent %></p>
+<p>
+    <%= truncatedStartingContent %>
+    <a href=>Read More</a>
+</p>
 
 <% posts.forEach(function(post){ %>
+    <%const truncatedContent =
+     post.content.substring(0, 100)  + " ..."; %>
+    
     <h1><%=post.title%></h1>
-    <p><%=post.content%></p>
+    <p><%=truncatedContent%>
+    <a href="/posts/<%=post.title%>">Read More</a>
+    </p>
 
 <%})%>
 
